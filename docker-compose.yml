@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  kafka:
+    image: customkafka
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    volumes:
+      - ./kafka_2.13-3.3.1/:/home/kafka
+
+  producer:
+    build: "./producer/"
+    volumes:
+      - ./producer/:/home/node/app
+
+  consumer:
+    build: "./consumer/"
+    volumes:
+      - ./consumer/:/home/node/app
