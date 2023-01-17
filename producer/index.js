@@ -22,7 +22,7 @@ const start = async() => {
 
 process.on('beforeExit', async (code) => {
   console.log(`Process is going to exit ${code}`);
-  //await producer.disconnect();
+  await producer.disconnect();
 });
 
 start();
